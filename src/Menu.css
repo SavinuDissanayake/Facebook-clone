@@ -1,0 +1,37 @@
+.menu_option {
+  display: flex;
+  padding-top: 10px;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.menu_option:hover {
+  background-color: #e3e4e9;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.profile_icon {
+  color: grey;
+}
+
+#content {
+  height: 0px;
+}
+
+#content.open {
+  height: 60px;
+}
+
+.icon_pro {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.icon_pro > h4 {
+  font-weight: 600;
+  padding-left: 15px;
+  position: center;
+}

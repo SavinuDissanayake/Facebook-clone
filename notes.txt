@@ -1,0 +1,32 @@
+firebase function --- we already pasted the config data on to this page
+now import firebase from 'firebase'; [firebase app]
+then we need to connect our front end with the firebase database [back end]   const firebaseApp = firebase.initilizeApp(firebaseConfig);
+creating the variable to access the database   const db = firebaseApp.firestore();
+creating an authorizing variable for the site   const auth = firebase.auth();
+make the authorizer for the site to be google   const provider =  new firebase.auth.GoogleAuthProvider();
+finally export both auth and provider and export db (database) as a default   export {auth, provider};  export default db;
+
+
+login function --- we are going to impliment that google provider here
+impor the auth and provider from the local firebase function   import {auth, provider} from "./firebase";
+give the authority with a sign in pop and and user the google provider to validate the authority then get the result and console log the result and if there was an error, alert the error
+auth.signInWithPopup(provider).then(result => {
+    console.log(result);
+}).catch(error => alert(error.message));
+
+
+App function --- implement react context api (it is bascially something that raps the entire app and lets the different parts of your app access information from one place)
+
+
+we create something called stateProvider, this is what we assume to be the data layer
+stateprovider function {
+    this function import createContext, useContext, useReducer [not sure about what reducer do]
+    we are then prepare the data layer by    export const StateContext = createContext();
+    next is the higher order component and we use it to rap our app. it allow us to have a stateProvider.
+    export const StateProvider = ({ reducer, initialState}) => (<StateContext.Provider value={useReducer(reducer,initialState)}>{children}</StateContext.Provider>);
+    and then if we need to pull data from the stateprovider we use   export const useStateValue = () => useContext(StateContext);
+
+    export const stateprovider = ({reducer, intialState, children}) => (
+        <stateContext
+    )
+}
